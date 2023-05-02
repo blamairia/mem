@@ -253,6 +253,52 @@ if (isset($_GET['sortby'])) {
 </div>
     <!-- Features End -->
         
+   
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="fs-5 fw-bold text-primary">Our Services</p>
+                <h1 class="display-5 mb-5">Services That We Offer For You</h1>
+            </div>
+            <div class="row g-4">
 
+            <?php
+                        $categories = getAllActive("categories");
+
+                        if(mysqli_num_rows($categories) > 0)
+                        {
+                            foreach($categories as $item)
+                            {
+                                ?>
+                                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="uploads/<?= $item['image']; ?>" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/icon-3.png" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">Landscaping</h4>
+                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                            <a class="btn btn-sm" href="products.php?category=<?= $item['slug'];  ?>"><i class="fa fa-plus text-primary me-2"></i>Read More</a>
+                        </div>
+                    </div>
+                </div>
+                                
+                                   
+                                <?php
+                            }
+                        }
+                        else {
+                            echo "no category available";
+                        }
+                    ?>
+                
+
+
+            </div>
+        </div>
+    </div>
 
 <?php include('includes/footer.php'); ?>
