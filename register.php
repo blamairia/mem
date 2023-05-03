@@ -36,7 +36,7 @@
                     <form action="functions/authcode.php" method="POST">
                         <div class="mb-3">
                             <label class="form-label">Full Name</label>
-                            <input type="text"  name="name" class="form-control" placeholder="Billel Lamairia">
+                            <input type="text"  name="name" class="form-control" placeholder="LIWAE DIFALLAH">
                         </div>
                         <div class="mb-3">
                         <label class="form-label">Phone</label>
@@ -44,7 +44,7 @@
                         </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" name="email" placeholder="blamairia@gmail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="email" name="email" placeholder="LIWAE@gmail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>

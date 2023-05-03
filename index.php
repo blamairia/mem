@@ -58,7 +58,7 @@ if (isset($_GET['sortby'])) {
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">Make Your Home Like Garden</h1>
+                                    <h1 class="display-1 text-white mb-5 animated slideInDown">UN PAS POUR LA RONODO</h1>
                                     <a href="" class="btn btn-primary py-sm-3 px-sm-4">Explore More</a>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@ if (isset($_GET['sortby'])) {
                 <div class="col-lg-6 col-md-7 wow fadeInUp" data-wow-delay="0.3s">
                     <h1 class="display-1 text-primary mb-0">25</h1>
                     <p class="text-primary mb-4">Year of Experience</p>
-                    <h1 class="display-5 mb-4">We Make Your Home Like A Garden</h1>
+                    <h1 class="display-5 mb-4"> RANDONNEÉ POUR LA  BONNE CAUSE</h1>
                     <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                     <a class="btn btn-primary py-3 px-4" href="">Explore More</a>
                 </div>
@@ -285,6 +285,20 @@ if (isset($_GET['sortby'])) {
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/service-1.jpg" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4"><?= $item['slug'];  ?></h4>
+                            <div class="d-flex">
+                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+                            
                                 
                                    
                                 <?php
