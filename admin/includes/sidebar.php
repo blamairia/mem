@@ -40,19 +40,19 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white <?= $page == 'products.php' ? 'active bg-gradient-primary' : "" ;?>" href="products.php">
+          <a class="nav-link text-white <?= $page == 'trips.php' ? 'active bg-gradient-primary' : "" ;?>" href="trips.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">All products</span>
+            <span class="nav-link-text ms-1">All trips</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white <?= $page == 'add-products.php' ? 'active bg-gradient-primary' : "" ;?>" href="add-products.php">
+          <a class="nav-link text-white <?= $page == 'add-trip.php' ? 'active bg-gradient-primary' : "" ;?>" href="add-trip.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">add</i>
             </div>
-            <span class="nav-link-text ms-1">Add Products</span>
+            <span class="nav-link-text ms-1">Add Trip</span>
           </a>
         </li>
       </ul>

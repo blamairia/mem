@@ -1,12 +1,7 @@
 <?php 
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
     session_start();
     include('../config/dbcon.php');
     include('../functions/myfunctions.php');
-  
-
 
     if(isset($_POST['add_category_btn']))
     {
@@ -135,8 +130,49 @@
 }
 // Add other cases for updating, deleting, etc. if needed
 
-
-   
+else {
+    redirect('../index.php', "invalid");
+}
+    else if (isset($_POST['add_trip_btn'])) {
+        $name = $_POST['name'];
+        $slug = $_POST['slug'];
+        $description = $_POST['description'];
+        $trip_price = $_POST['trip_price'];
+        $max_participants = $_POST['max_participants'];
+        $status = isset($_POST['status']) ? '1' : '0';
+        $meta_title = $_POST['meta_title'];
+        $meta_description = $_POST['meta_description'];
+        $meta_keywords = $_POST['meta_keywords'];
+    
+        $image_names = $_FILES['images']['name'];
+        $path = "../uploads";
+    
+        $image_filenames = [];
+    
+        foreach ($image_names as $key => $image_name) {
+            $image_ext = pathinfo($image_name, PATHINFO_EXTENSION);
+            $filename = time() . '_' . $key . '.' . $image_ext;
+            array_push($image_filenames, $filename);
+        }
+    
+        $image_filenames_str = implode(",", $image_filenames);
+    
+        $trip_query = "INSERT INTO trips (name,slug,description,trip_price,max_participants,status,meta_title,meta_description,meta_keywords,images)
+        VALUES ('$name','$slug','$description','$trip_price','$max_participants','$status','$meta_title','$meta_description','$meta_keywords','$image_filenames_str')";
+    
+        $trip_query_run = mysqli_query($con, $trip_query);
+    
+        if ($trip_query_run) {
+            foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+                move_uploaded_file($tmp_name, $path . '/' . $image_filenames[$key]);
+            }
+            redirect("add_trip.php", "Trip Added Successfully");
+        } else {
+            redirect("add_trip.php", "Something went wrong");
+        }
+    }
+    // Add other cases for updating, deleting, etc. if needed
+    
    
     else if (isset($_POST['update_trip_btn'])) {
         $trip_id = $_POST['trip_id'];
