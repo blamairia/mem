@@ -71,7 +71,7 @@ include('includes/header.php');
     <input type="checkbox" name="status" <?= $data['status'] == 1 ? 'checked' : ''; ?>>
 </div>
 <div class="col-md-12">
-    <button type="submit" class="btn btn-primary" name="update_trip_btn">Update</button>
+    <button type="submit" class="btn btn-primary bg-gradient-success" name="update_trip_btn">Update</button>
 </div>
 </div>
 </form>

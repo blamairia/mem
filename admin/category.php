@@ -19,7 +19,7 @@ include('includes/header.php');
                 <div class="card-body" id="category_table">
                     <table class="table table-bordred table-striped table-hover">
                         <thead>
-                            <tr class="table-info">
+                            <tr class="table-success">
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Image</th>
@@ -49,9 +49,9 @@ include('includes/header.php');
                                             <?= $item['is_profit'] == '1' ? "Profit" : "Non-Profit"?>
                                         </td>
                                         <td>
-                                            <a href="edit-category.php?id=<?= $item['id']; ?>" class="btn btn-primary">Edit</a>
+                                            <a href="edit-category.php?id=<?= $item['id']; ?>" class="btn btn-primary bg-gradient-success">Edit</a>
                                             
-                                                <button class="btn btn-danger btn-sm delete_category_btn" value="<?= $item['id'];?>" type="submit" name="delete_category_btn">Delete</button>
+                                                <button class="btn btn-warning btn-sm delete_category_btn" value="<?= $item['id'];?>" type="submit" name="delete_category_btn">Delete</button>
                                             
                                             </td>
                                     </tr>

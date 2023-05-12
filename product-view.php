@@ -1,82 +1,43 @@
-<?php 
-
+<?php
 session_start();
+include('functions/myfunctions.php');
+include('includes/header.php');
 
-    include('functions/userfunctions.php');
-    include('includes/header.php');
-if(isset($_GET['product']))
-{
-    $product_slug = $_GET['product'];
-    $product_data = getSlugActive("products",$product_slug);
-    $product = mysqli_fetch_array($product_data);
-
-    if($product){
+if (isset($_GET['slug'])) {
+    $slug = $_GET['slug'];
+    $tripData = getSlugActive("trips", $slug);
+    $trip = mysqli_fetch_array($tripData);
+    if ($trip) {
         ?>
-        <div class="py-3 bg-dark">
-            <div class="container">
-                
-                    <a href="index.php" class="text-white" style="text-decoration:none">Home / </a>
-                    <a href="categories.php" class="text-white" style="text-decoration:none" >Collections / </a>
-                    <a href="#" class="text-white" style="text-decoration:none"><?= $product['name'];?></a>
-                
-            </div>
-        </div>
-            <div class="container mt-3 bg-light product-data">
-                <div class="row">
-                    <div class="col-md-4 shadow">
-                        <img src="uploads/<?= $product['image']; ?>" alt="product image" class="w-100">
-                    </div>
-                    <div class="col-md-8">
-                        <h4 class="fw-bold"><?= $product['name'];?>
-                            <span class="float-end text-danger"><?= $product['trending'] ? "Trending" : "" ?></span>
-                        </h4>
-                        <hr>
-                        <p><?= $product['small_description'];?></p>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <H4> $ <span class="text-success fw-bold"> <?= $product['selling_price']; ?></span></H4>
-                            </div>
-                            <div class="col-md-6">
-                                <H5 class ="mt-2"> $ <s class="text-danger"><?= $product['original_price']; ?></s></H5>
-                            </div>
-                            
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center mb-4"><?= $trip['name'] ?></h2>
+                    <img src="uploads/<?= $trip['images']; ?>" class="img-fluid rounded mb-4" alt="<?= $trip['name'] ?>">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5>Description:</h5>
+                            <p><?= $trip['description']; ?></p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                            <div class="input-group mb-3" style="width:130px">
-                                <button class="input-group-text decrement-btn">-</button>
-                                <input type="text" class="form-control bg-white text-center qty-input" value="1"  >
-                                <button class="input-group-text increment-btn">+</button>
-                            </div>
-                            </div> 
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <button class="btn btn-primary px-4 addToCart-btn" value="<?= $product['id']; ?>"><i class="fa fa-shopping-cart me-2"></i>Add to cart</a></button>
-
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn btn-danger px-4"><i class="fa fa-heart me-2"> Add to wishlist</i></button>
-                            </div>
+                        <div class="col-md-4">
+                            <h5>Details:</h5>
+                            <p><strong>Start Date:</strong> <?= date('d F Y', strtotime($trip['start_date'])); ?></p>
+                            <p><strong>End Date:</strong> <?= date('d F Y', strtotime($trip['end_date'])); ?></p>
+                            <p><strong>Price:</strong> $<?= $trip['trip_price']; ?></p>
+                            <p><strong>Max Participants:</strong> <?= $trip['max_participants']; ?></p>
+                            <a href="reservation.php?id=<?= $trip['id']; ?>" class="btn btn-primary btn-block mt-3">Reserve Now</a>
                         </div>
-                        <h6 class="fw-bold mt-5">Product Description :</h6>
-                        <hr>
-                        <p><?= $product['description'];?></p>
                     </div>
                 </div>
             </div>
+        </div>
         <?php
+    } else {
+        echo "<h2 class='text-center'>Trip not found!</h2>";
     }
-    else
-    {
-    echo "Product not found";   
-    }
+} else {
+    echo "<h2 class='text-center'>No trip selected!</h2>";
 }
-else
-{
-    echo "SOMETHING WENT WRONG";
-}
+
+include('includes/footer.php');
 ?>
-</div>
-<?php 
-include('includes/footer.php'); ?>

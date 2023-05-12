@@ -1,8 +1,10 @@
 <?php 
 
 session_start();
-
-include('functions/userfunctions.php');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include_once('functions/myfunctions.php');
 include('includes/header.php');
 if(isset($_GET['category']))
 {
@@ -34,41 +36,25 @@ if(isset($_GET['category']))
                                 if(mysqli_num_rows($trips) > 0)
                                 { ?>
                                     <div class="container mt-3 bg-light product-data">
-                <div class="row">
-                <?php  foreach($trips as $trip) :?>
-                    
-                        
-                            <div class="col-md-4 mb-2">
-                                            <a style="text-decoration:none;" href="trip-details.php?id=<?= $trip['id']; ?>">
-                                                <div class="card shadow">
+                                        <div class="row">
+                                        <?php  while ($trip = mysqli_fetch_assoc($trips)) :?>
+                                            <div class="col-md-4 mb-2">
+                                                <div class="card shadow" style="width: 18rem; height: 28rem;">
+                                                    <img src="uploads/<?= $trip['images']; ?>" alt="trip image" class="card-img-top" style="height: 15rem; object-fit: cover;">
                                                     <div class="card-body">
-                                                        <img src="uploads/<?= $trip['images']; ?>" alt="category image" class="w-100">
-                                                        <h4  class="text-center"><?= $trip['name']; ?></h4>
-                                                        
-                                                        <H4 class ="text-center">Price : $ <span class="text-success fw-bold"> <?= $trip['trip_price']; ?></span></H4>
-                                                        <div class="justify-content-center row">
-
-                                                       
-                                                        
-                                                        
-                                            
-
-                                                        <button class="btn bg-white addToCart-btn btn-primary text-center" type="button"><i class="fa fa-shopping-cart me-2"></i>Add to cart</a></button>
+                                                        <h5  class="text-center"><?= $trip['name']; ?></h5>
+                                                        <p class="text-center"><?= substr($trip['description'], 0, 100); ?>...</p>
+                                                        <h6 class="text-center text-muted">Price : $<?= $trip['trip_price']; ?></h6>
+                                                        <div class="d-grid">
+                                                            <a href="trip-details.php?slug=<?= $trip['slug']; ?>" class="btn btn-primary">Show More</a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </a>
-                                            
-                                        
-                            </div>           
-                        <?php  endforeach; ?>
-                            
-               
+                                            </div>
+                                        <?php  endwhile; ?>
+                                        </div>
+                                    </div>
 
-
-                    
-                </div>
-    </div>
                                         
                                         <?php
                                     }

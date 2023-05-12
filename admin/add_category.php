@@ -40,7 +40,7 @@ include('includes/header.php');
                                 <input type="checkbox" name="profit">
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary" name="add_category_btn">Save</button>
+                                <button type="submit" class="btn bg-gradient-success" name="add_category_btn">Save</button>
                             </div>
                         </div>
                     </form>

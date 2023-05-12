@@ -73,7 +73,7 @@ include('includes/header.php');
                             
                             
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary" name="add_trip_btn">Save</button>
+                                <button type="submit" class="btn btn-primary bg-gradient-success" name="add_trip_btn">Save</button>
                             </div>
                         </div>
                     </form>

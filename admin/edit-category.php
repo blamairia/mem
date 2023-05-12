@@ -60,7 +60,7 @@ include('includes/header.php');
                                                 <input type="checkbox" <?= $data['is_profit'] == 1 ?"checked" : ""  ?> name="is_profit">
                                             </div>
                                             <div class="col-md-12">
-                                                <button type="submit" class="btn btn-primary" name="update_category_btn">Update</button>
+                                                <button type="submit" class="btn btn-primary bg-gradient-success" name="update_category_btn">Update</button>
                                             </div>
                                         </div>
                                     </form>

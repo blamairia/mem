@@ -14,7 +14,7 @@ include('includes/header.php');
                 <div class="card-body" id="trips_table">
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
-                            <tr class="table-info">
+                            <tr class="table-success">
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Category</th>
@@ -53,12 +53,12 @@ include('includes/header.php');
                                             <?= $item['status'] == '0' ? "Visible" : "Hidden"?>
                                         </td>
                                         <td>
-                                            <a href="edit-trip.php?id=<?= $item['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                            <a href="edit-trip.php?id=<?= $item['id']; ?>" class="btn btn-sm btn-success">Edit</a>
                                         </td>
                                         <td>
                                             <form action="code.php" method="POST">
                                                 <input type="hidden" name="trip_id" value="<?= $item['id']; ?>">
-                                                <button type="submit" class="btn btn-danger btn-sm" name="delete_trip_btn">Delete</button>
+                                                <button type="submit" class="btn btn-warning btn-sm" name="delete_trip_btn">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
