@@ -1,6 +1,10 @@
 <?php   
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include('../middleware/adminMiddleware.php');
+include_once('../functions/myfunctions.php');
 include('includes/header.php');
 ?>
 
@@ -11,7 +15,7 @@ include('includes/header.php');
                 if(isset($_GET['id']))
                 {
                     $id = $_GET['id'];
-                    $category = getById("categories", $id);
+                    $category = getIDActive("categories", $id);
 
                     if(mysqli_num_rows($category) > 0)
                     {
@@ -21,7 +25,7 @@ include('includes/header.php');
                             <div class="card">
                                 <div class="card-header">
                                     <h4>Edit Category</h4>
-                                    <a href="category.php" class="btn btn-primary float-end">retour</a>
+                                    <a href="category.php" class="btn btn-primary float-end">Back</a>
                                 </div>
                                 <div class="card-body">
                                     <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -29,7 +33,7 @@ include('includes/header.php');
                                             <div class="col-md-6">
                                                 <input type="hidden" value="<?= $data['id'] ?>" name="category_id" >
                                                 <label for="name">Name</label>
-                                                <input type="text" name="name" value ="<?= $data['name'] ?>" placeholder="Enter category nom" class="form-control">
+                                                <input type="text" name="name" value ="<?= $data['name'] ?>" placeholder="Enter category name" class="form-control">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="slug"  >Slug</label>
@@ -47,28 +51,16 @@ include('includes/header.php');
                                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
                                                 <img src="../uploads/<?= $data['image'] ?>" width="50px" height="50px">
                                             </div>
-                                            <div class="col-md-12">
-                                                <label for=""  >meta title</label>
-                                                <input type="text" value ="<?= $data['meta_title'] ?>" name="meta_title" class="form-control">
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label for=""  >Meta description</label>
-                                                <textarea name="meta_description" rows="3" placeholder="Enter meta description" class="form-control"><?= $data['meta_description'] ?></textarea>
-                                            </div>
-                                            <div class="col-md-1é">
-                                                <label for=""  >Meta keywords</label>
-                                                <textarea name="meta_keywords" rows="3" placeholder="Enter meta keywords" class="form-control"><?= $data['meta_keywords'] ?></textarea>
-                                            </div>
                                             <div class="col-md-6">
                                                 <label for=""  >Status</label>
                                                 <input type="checkbox" <?= $data['status'] == 1 ?"checked" : ""  ?> name="status">
                                             </div>
                                             <div class="col-md-6">
-                                                <label for=""  >Popular</label>
-                                                <input type="checkbox" <?= $data['popular'] == 1 ?"checked" : ""  ?> name="popular">
+                                                <label for=""  >Profit</label>
+                                                <input type="checkbox" <?= $data['is_profit'] == 1 ?"checked" : ""  ?> name="is_profit">
                                             </div>
                                             <div class="col-md-12">
-                                                <button type="submit" class="btn btn-primary" name="update_category_btn">update</button>
+                                                <button type="submit" class="btn btn-primary" name="update_category_btn">Update</button>
                                             </div>
                                         </div>
                                     </form>
@@ -79,7 +71,7 @@ include('includes/header.php');
                     }
                     else
                     {
-                        echo "category not found";
+                        echo "Category not found";
                     }
                 }
                 else

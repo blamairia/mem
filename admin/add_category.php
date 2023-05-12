@@ -1,4 +1,4 @@
-<?php   
+<?php
 session_start();
 include('../middleware/adminMiddleware.php');
 include('includes/header.php');
@@ -15,41 +15,29 @@ include('includes/header.php');
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="name">Name</label>
-                                <input type="text" name="name" placeholder="Enter category nom" class="form-control">
+                                <label class="mb-0" for="name">Category Name</label>
+                                <input type="text" required name="name" placeholder="Enter category name" class="form-control mb-3">
                             </div>
                             <div class="col-md-6">
-                                <label for="slug"  >Slug</label>
-                                <input type="text" placeholder="Enter slug" name="slug" class="form-control">
-                            </div>
-                            
-                            <div class="col-md-12">
-                                <label for=""  >Description</label>
-                                <textarea name="description" rows="3" placeholder="Enter description" class="form-control"></textarea>
+                                <label class="mb-0" for="slug">Slug</label>
+                                <input type="text" required placeholder="Enter slug" name="slug" class="form-control mb-3 ">
                             </div>
                             <div class="col-md-12">
-                                <label for=""  >Upload Image</label>
-                                <input type="file" name="image" class="form-control">
+                                <label class="mb-0" for="">Description</label>
+                                <textarea name="description" required rows="3" placeholder="Enter description" class="form-control mb-3"></textarea>
                             </div>
                             <div class="col-md-12">
-                                <label for=""  >meta_title</label>
-                                <input type="text" name="meta_title" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <label for=""  >Meta description</label>
-                                <textarea name="meta_description" rows="3" placeholder="Enter meta description" class="form-control"></textarea>
-                            </div>
-                            <div class="col-md-1é">
-                                <label for=""  >Meta keywords</label>
-                                <textarea name="meta_keywords" rows="3" placeholder="Enter meta keywords" class="form-control"></textarea>
+                                <label class="mb-0" for="">Upload Image</label>
+                                <input type="file" name="image" class="form-control mb-3">
                             </div>
                             <div class="col-md-6">
-                                <label for=""  >Status</label>
+                                <label class="mb-0" for="status"style="font-size: 20px; color: black;">Status</label><br>
                                 <input type="checkbox" name="status">
                             </div>
+                            <br>
                             <div class="col-md-6">
-                                <label for=""  >Popular</label>
-                                <input type="checkbox" name="popular">
+                                <label class="mb-0" for="profit" style="font-size: 20px; color: black;">Profit</label><br>
+                                <input type="checkbox" name="profit">
                             </div>
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary" name="add_category_btn">Save</button>
@@ -62,4 +50,4 @@ include('includes/header.php');
     </div>
 </div>
 
-<?php   include('includes/footer.php');?>
+<?php include('includes/footer.php'); ?>

@@ -2,6 +2,8 @@
 session_start();
 include('../middleware/adminMiddleware.php');
 include('includes/header.php');
+Warning: include(config/dbcon.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/2/functions/myfunctions.php on line 2
+
 
 ?>
 

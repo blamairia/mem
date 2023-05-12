@@ -73,18 +73,7 @@ include('includes/header.php');
                                 <label class="mb-0" for="status">Status</label><br>
                                 <input type="checkbox" name="status">
                             </div>
-                            <div class="col-md-12">
-                                <label class="mb-0" for="meta_title">Meta Title</label>
-                                <input type="text" name="meta_title" class="form-control mb-3">
-                            </div>
-                            <div class="col-md-12">
-                                <label class="mb-0" for="meta_description">Meta Description</label>
-                                <textarea name="meta_description" rows="3" placeholder="Enter meta description" class="form-control mb-3"></textarea>
-                            </div>
-                            <div class="col-md-12">
-                                <label class="mb-0" for="meta_keywords">Meta Keywords</label>
-                                <textarea name="meta_keywords" rows="3" placeholder="Enter meta keywords" class="form-control mb-3"></textarea>
-                            </div>
+                           
                             
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary" name="add_trip_btn">Save</button>

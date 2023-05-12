@@ -6,42 +6,12 @@ error_reporting(E_ALL);
 session_start();
     include('includes/header.php');
     include('config/dbcon.php');
-    include('functions/userfunctions.php');
+    
+    include('functions/myfunctions.php');
     
 // put the parameters in the $index variable
 $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
 // index.php link with the current parameters
-$index = $link . "/index.php";
-    $sql = "SELECT * FROM products";
-    $result = mysqli_query($con, $sql);
-    $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    function sortByPrice($products, $sortby)
-{
-    if ($sortby == "asc") {
-        usort($products, function ($a, $b) {
-            return $a['selling_price'] - $b['selling_price'];
-        });
-    } else {
-        usort($products, function ($a, $b) {
-            return $b['selling_price'] - $a['selling_price'];
-        });
-    }
-    return $products;
-}
-
-
-
-
-
-if (isset($_GET['search'])) {
-    $products = searchByName($products, $_GET['search']);
-}
-
-if (isset($_GET['sortby'])) {
-    $sortby = $_GET['sortby'];
-    $products = sortByPrice($products, $sortby);
-}
 
 
 
@@ -255,64 +225,64 @@ if (isset($_GET['sortby'])) {
         
    
     <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="fs-5 fw-bold text-primary">Our Services</p>
-                <h1 class="display-5 mb-5">Services That We Offer For You</h1>
-            </div>
-            <div class="row g-4">
-
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center mb-4">Non-profit Trips</h2>
+            <hr>
             <?php
-                        $categories = getAllActive("categories");
-
-                        if(mysqli_num_rows($categories) > 0)
-                        {
-                            foreach($categories as $item)
-                            {
-                                ?>
-                                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded d-flex h-100">
-                        <div class="service-img rounded">
-                            <img class="img-fluid" src="uploads/<?= $item['image']; ?>" alt="">
-                        </div>
-                        <div class="service-text rounded p-5">
-                            <div class="btn-square rounded-circle mx-auto mb-3">
-                                <img class="img-fluid" src="img/icon/icon-3.png" alt="Icon">
-                            </div>
-                            <h4 class="mb-3">Landscaping</h4>
-                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn btn-sm" href="products.php?category=<?= $item['slug'];  ?>"><i class="fa fa-plus text-primary me-2"></i>Read More</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-1.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4"><?= $item['slug'];  ?></h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                            </div>
-                            
-                                
-                                   
-                                <?php
-                            }
-                        }
-                        else {
-                            echo "no category available";
-                        }
+            $non_profit_categories = getAllActive('categories', 0);
+            while ($category = mysqli_fetch_assoc($non_profit_categories)) {
+                echo '<h4>' . $category['name'] . '</h4>';
+                $trips = getTripsByCategory($category['id']);
+                echo '<div class="row">';
+                while ($trip = mysqli_fetch_assoc($trips)) {
                     ?>
-                
-
-
-            </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="../uploads/<?= $trip['image']; ?>" class="card-img-top" alt="<?= $trip['name'] ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $trip['name']; ?></h5>
+                                <p class="card-text"><?= $trip['description']; ?></p>
+                                <p class="card-text"><strong>Price:</strong> $<?= $trip['price']; ?></p>
+                                <a href="trip-details.php?id=<?= $trip['id']; ?>" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+                echo '</div>';
+            }
+            ?>
+            <h2 class="text-center mb-4 mt-5">Profit Trips</h2>
+            <hr>
+            <?php
+            $profit_categories = getAllActive('categories', 1);
+            while ($category = mysqli_fetch_assoc($profit_categories)) {
+                echo '<h4>' . $category['name'] . '</h4>';
+                $trips = getTripsByCategory($category['id']);
+                echo '<div class="row">';
+                while ($trip = mysqli_fetch_assoc($trips)) {
+                    ?>
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="../uploads/<?= $trip['image']; ?>" class="card-img-top" alt="<?= $trip['name'] ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $trip['name']; ?></h5>
+                                <p class="card-text"><?= $trip['description']; ?></p>
+                                <p class="card-text"><strong>Price:</strong> $<?= $trip['price']; ?></p>
+                                <a href="trip-details.php?id=<?= $trip['id']; ?>" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+                echo '</div>';
+            }
+            ?>
         </div>
+    </div>
+</div>
     </div>
 
 <?php include('includes/footer.php'); ?>

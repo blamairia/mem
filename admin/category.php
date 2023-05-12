@@ -1,11 +1,15 @@
 <?php   
 session_start();
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include('../middleware/adminMiddleware.php');
+
 include('includes/header.php');
+
 ?>
 
-<div class="conainer">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -20,6 +24,7 @@ include('includes/header.php');
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Status</th>
+                                <th>Profit</th>
                                 <th>Action</th>                         
                             </tr>
                         </thead>
@@ -35,10 +40,14 @@ include('includes/header.php');
                                         <td><?= $item['id']; ?></td>
                                         <td><?= $item['name']; ?></td>
                                         <td>
-                                            <img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px"alt="<?= $item['name'] ?>">
+                                            <img src="../uploads/<?= $item['image']; ?>" width="50px" height="50px" alt="<?= $item['name'] ?>">
                                         </td>
                                         <td>
-                                            <?= $item['status'] == '0' ? "Visible" : "Hidden"?></td>
+                                            <?= $item['status'] == '0' ? "Visible" : "Hidden"?>
+                                        </td>
+                                        <td>
+                                            <?= $item['is_profit'] == '1' ? "Profit" : "Non-Profit"?>
+                                        </td>
                                         <td>
                                             <a href="edit-category.php?id=<?= $item['id']; ?>" class="btn btn-primary">Edit</a>
                                             
