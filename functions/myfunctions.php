@@ -1,5 +1,5 @@
 <?php
-include ('../config/dbcon.php');
+include(__DIR__ . '/../config/dbcon.php');
 
 function getAllActive($table, $is_profit = null)
 {
@@ -50,6 +50,13 @@ function redirect($url, $message)
     $_SESSION['message'] = $message;
     header('Location: '.$url);
     exit();
+}
+
+function getCategory($categoryId) {
+    global $con;
+
+    $result = mysqli_query($con, "SELECT * FROM categories WHERE id = $categoryId");
+    return mysqli_fetch_assoc($result);
 }
 
 ?>

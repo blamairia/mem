@@ -41,10 +41,7 @@ include('includes/header.php');
                                 <label class="mb-0" for="slug">Slug</label>
                                 <input type="text" required placeholder="Enter slug" name="slug" class="form-control mb-3 ">
                             </div>
-                            <div class="col-md-12">
-                                <label class="mb-0" for="">Short Description</label>
-                                <textarea name="short_description" required rows="3" placeholder="Enter short description" class="form-control mb-3"></textarea>
-                            </div>
+                            
                             <div class="col-md-12">
                                 <label class="mb-0" for="">Description</label>
                                 <textarea name="description" required rows="3" placeholder="Enter description" class="form-control mb-3"></textarea>
@@ -73,7 +70,7 @@ include('includes/header.php');
                                 <label class="mb-0" for="status">Status</label><br>
                                 <input type="checkbox" name="status">
                             </div>
-                           
+                            
                             
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary" name="add_trip_btn">Save</button>

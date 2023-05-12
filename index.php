@@ -240,11 +240,11 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                     ?>
                     <div class="col-md-4">
                         <div class="card mb-4">
-                            <img src="../uploads/<?= $trip['image']; ?>" class="card-img-top" alt="<?= $trip['name'] ?>">
+                            <img src="uploads/<?= $trip['images']; ?>" class="card-img-top" alt="<?= $trip['name'] ?>">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $trip['name']; ?></h5>
                                 <p class="card-text"><?= $trip['description']; ?></p>
-                                <p class="card-text"><strong>Price:</strong> $<?= $trip['price']; ?></p>
+                                <p class="card-text"><strong>Price:</strong> $<?= $trip['trip_price']; ?></p>
                                 <a href="trip-details.php?id=<?= $trip['id']; ?>" class="btn btn-primary">View Details</a>
                             </div>
                         </div>
@@ -266,11 +266,11 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                     ?>
                     <div class="col-md-4">
                         <div class="card mb-4">
-                            <img src="../uploads/<?= $trip['image']; ?>" class="card-img-top" alt="<?= $trip['name'] ?>">
+                            <img src="uploads/<?= $trip['images']; ?>" class="card-img-top" alt="<?= $trip['name'] ?>">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $trip['name']; ?></h5>
                                 <p class="card-text"><?= $trip['description']; ?></p>
-                                <p class="card-text"><strong>Price:</strong> $<?= $trip['price']; ?></p>
+                                <p class="card-text"><strong>Price:</strong> $<?= $trip['trip_price']; ?></p>
                                 <a href="trip-details.php?id=<?= $trip['id']; ?>" class="btn btn-primary">View Details</a>
                             </div>
                         </div>

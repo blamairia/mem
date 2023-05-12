@@ -11,14 +11,13 @@ include('includes/header.php');
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
 
-                $trip = getByID("trips", $id);
+                $trip = getIDActive("trips", $id);
                 if (mysqli_num_rows($trip) > 0) {
                     $data = mysqli_fetch_array($trip);
                     ?>
                     <div class="card">
                         <div class="card-header">
                             <h4>Edit Trip</h4>
-                            <a href="trips.php" class="btn btn-primary float-end">Back</a>
                         </div>
                         <div class="card-body">
                             <form action="code.php" method="POST" enctype="multipart/form-data">
@@ -27,28 +26,27 @@ include('includes/header.php');
                                         <input type="hidden" name="trip_id" value="<?= $data['id']; ?>">
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="mb-0" for="name">Name</label>
+                                        <label class="mb-0" for="name">Trip Name</label>
                                         <input type="text" required name="name" placeholder="Enter trip name" class="form-control mb-3" value="<?= $data['name']; ?>">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="mb-0" for="slug">Slug</label>
-                                        <input type="text" required placeholder="Enter slug" value="<?= $data['slug']; ?>" name="slug" class="form-control mb-3 ">
+                                        <input type="text" required placeholder="Enter slug" name="slug" class="form-control mb-3 " value="<?= $data['slug']; ?>">
                                     </div>
                                     <div class="col-md-12">
                                         <label class="mb-0" for="">Description</label>
                                         <textarea name="description" required rows="3" placeholder="Enter description" class="form-control mb-3"><?= $data['description']; ?></textarea>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="mb-0" for="trip_price">Trip Price</label>
-                                        <input type="number" value="<?= $data['trip_price']; ?>" required name="trip_price" placeholder="Enter trip price" class="form-control mb-3">
+                                        <label class="mb-0" for="name">Trip Start Date</label>
+                                        <input type="date" required name="start_date" class="form-control mb-3" value="<?= $data['start_date']; ?>">
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="mb-0" for="max_participants">Max Participants</label>
-                                        <input type="number" value="<?= $data['max_participants']; ?>" required placeholder="Enter max participants" name="max_participants" class="form-control mb-3">
+                                        <label class="mb-0">Trip End Date</label>
+                                        <input type="date" required name="end_date" class="form-control mb-3" value="<?= $data['end_date']; ?>">
                                     </div>
                                     <div class="col-md-12">
-                                        <label class="mb-0" for="">Images</label>
-                                        <input type="hidden" name="old_images" value="<?= $data['images']; ?>">
+                                        <label class="mb-0" for="">Upload Images</label>
                                         <input type="file" name="images[]" class="form-control mb-3" multiple>
                                         <label class="mb-0" for="">Current Images</label>
                                         <?php
@@ -60,45 +58,38 @@ include('includes/header.php');
                                         }
                                         ?>
                                     </div>
-                                    <div class="col-md-3">
-                                        <label class="mb-0 mt-3" for="">Status</label><br>
-                                        <input type="checkbox" <?= $data['status'] == 0 ? '' : 'checked'; ?> name="status">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="mb-0 mt-3" for="">Featured</label><br>
-                                        <input type="checkbox" <?= $data['featured'] == 0 ? '' : 'checked'; ?> name="featured">
-                                    </div>
                                     <div class="col-md-12">
-                                        <label class="mb-0" for="">Meta title</label>
-                                        <input type="text" name="meta_title" value="<?= $data['meta_title']; ?>" class="form-control mb-3">
+                                        <label class="mb-0" for="">Price</label>
+                                        <input type="number" required placeholder="Enter price" name="trip_price" class="form-control mb-3" value="<?= $data['trip_price']; ?>">
                                     </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-0" for="">Meta description</label>
-                                        <textarea name="meta_description" rows="3" placeholder="Enter meta description" class="form-control mb-3"><?= $data['meta_description']; ?></textarea>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-0" for="">Meta keywords</label>
-                                        <textarea name="meta_keywords" rows="3" placeholder="Enter meta keywords" class="form-control mb-3"><?= $data['meta_keywords']; ?></textarea>
-                                    </div>
-                                    <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary" name="update_trip_btn">Update</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                                    <div class="col-md-6">
+    <label class="mb-0" for="max_participants">Max Participants</label>
+    <input type="number" required placeholder="Enter maximum participants" name="max_participants" class="form-control mb-3" value="<?= $data['max_participants']; ?>">
+</div>
+<div class="col-md-6">
+    <label class="mb-0" for="status">Status</label><br>
+    <input type="checkbox" name="status" <?= $data['status'] == 1 ? 'checked' : ''; ?>>
+</div>
+<div class="col-md-12">
+    <button type="submit" class="btn btn-primary" name="update_trip_btn">Update</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<?php
+} else {
+echo "Trip not found for the given ID";
+}
+} else {
+echo "ID missing from URL";
+}
+?>
+</div>
+</div>
+</div>
 
-                <?php
-            } else {
-                echo "Trip not found for the given ID";
-            }
-        } else {
-            echo "Id missing from URL";
-        }
-        ?>
-    </div>
-</div>
-</div>
 <?php include('includes/footer.php'); ?>
-
 
