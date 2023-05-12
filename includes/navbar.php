@@ -40,8 +40,11 @@ function searchByName($products, $search)
           <a class="nav-link text-light active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light " href="categories.php">Collections</a>
-        </li>
+                    <a class="nav-link text-light" href="categories.php?profit=1">Profit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="categories.php?profit=0">Non-Profit</a>
+                </li>
         <?php 
             if(isset($_SESSION['auth']))
             {

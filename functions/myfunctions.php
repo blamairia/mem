@@ -59,4 +59,21 @@ function getCategory($categoryId) {
     return mysqli_fetch_assoc($result);
 }
 
+function getProfitCategories()
+{   
+    global $con;
+    $query = "SELECT * FROM categories WHERE is_profit = 1";
+    $result = mysqli_query($con, $query);
+    return $result;
+}
+
+function getNonProfitCategories()
+{   
+    global $con;
+    $query = "SELECT * FROM categories WHERE is_profit = 0";
+    $result = mysqli_query($con, $query);
+    return $result;
+}
+
+
 ?>
