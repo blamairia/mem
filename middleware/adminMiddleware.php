@@ -1,13 +1,11 @@
 <?php
-include('../functions/myfunctions.php');
-if(isset($_SESSION['auth']))
-{
-    if($_SESSION['role_as'] != 1){
 
-        redirect("../index.php","You are not authorized to access this page");
-    }
+include('../functions/myfunctions.php');
+
+// Admin Authentication Middleware
+if (!isset($_COOKIE['auth_admin']) || $_COOKIE['auth_admin'] !== '1') {
+    redirect("../login.php", "Login to continue");
 }
-else 
-{
-    redirect("../login.php","Login to continue");
-}
+
+
+?>
