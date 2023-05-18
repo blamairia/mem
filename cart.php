@@ -5,27 +5,9 @@ session_start();
     include('functions/userfunctions.php');
     include('includes/header.php');
     include('config/dbcon.php');
-    $total=0;
+  
     
-    if (isset($_POST['increment'])) {
-        
-        $prod_id = $_POST['prod_id'];
-        $user_id = $_POST['user_id'];
-        $sql = "UPDATE cart SET prod_qty = prod_qty + 1 WHERE prod_id = $prod_id AND user_id = $user_id";
-        mysqli_query($con, $sql);
-    }
-    // decrement quantity of item in cart by 1 if quantity is greater than 1
-    if (isset($_POST['decrement'])) {
-        $prod_id = $_POST['prod_id'];
-        $user_id = $_POST['user_id'];
-        $sql = "UPDATE cart SET prod_qty = prod_qty + 1 WHERE prod_id = $prod_id AND user_id = $user_id";
-        $product = $_POST['prod_qty'];
-        if ($product > 1) {
-            $sql = "UPDATE cart SET prod_qty = prod_qty - 1 WHERE prod_id = $prod_id AND user_id = $user_id";
-            mysqli_query($con, $sql);
-        }
-    }
-
+    
    
     if (isset($_POST['delete'])) {
         global $con;

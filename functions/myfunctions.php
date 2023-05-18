@@ -1,5 +1,12 @@
 <?php
 include(__DIR__ . '/../config/dbcon.php');
+// Report all PHP errors
+error_reporting(E_ALL);
+
+// Display all errors
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
 
 function getAllActive($table, $is_profit = null)
 {
@@ -74,6 +81,46 @@ function getNonProfitCategories()
     $result = mysqli_query($con, $query);
     return $result;
 }
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $user_id = $_POST["user_id"];
+    $trip_id = $_POST["trip_id"];
+
+    // Query to check if a reservation by this user already exists for this trip
+    $reservation_check_query = "SELECT * FROM reservations WHERE trip_id = '$trip_id' AND user_id = '$user_id'";
+    $result_check = mysqli_query($con, $reservation_check_query);
+
+    if (mysqli_num_rows($result_check) > 0) {
+        $_SESSION['message'] = 'You have already reserved for this trip!';
+    } else {
+        // Query to check the available places for this trip
+        $trip_check_query = "SELECT places FROM trips WHERE id = '$trip_id'";
+        $result_trip = mysqli_query($con, $trip_check_query);
+        $trip_data = mysqli_fetch_array($result_trip);
+
+        if ($trip_data['places'] > 0) {
+            // Insert the new reservation
+            $query = "INSERT INTO reservations (name,email, phone, trip_id,user_id) VALUES ('$name', '$email', '$phone', '$trip_id','$user_id')";
+            $result = mysqli_query($con, $query);
+
+            if ($result) {
+                $_SESSION['message'] = 'Reservation made successfully!';
+                // Decrement the places available for this trip
+                $update_trip_query = "UPDATE trips SET places = places - 1 WHERE id = '$trip_id'";
+                mysqli_query($con, $update_trip_query);
+            } else {
+                $_SESSION['message'] = 'Error making reservation!';
+            }
+        } else {
+            $_SESSION['message'] = 'No places left for this trip!';
+        }
+    }
+}
+
 
 
 ?>

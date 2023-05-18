@@ -57,17 +57,17 @@ if(!isset($_SESSION)){
     
         if (mysqli_num_rows($login_query_run) > 0) {
             $_SESSION['auth'] = true;
-            setcookie("auth", $userid, time() + (86400 * 30), "/"); // 86400 = 1 day
+            setcookie("auth", 'true', time() + (86400 * 30), "/"); // 86400 = 1 day
 
     
             $userdata = mysqli_fetch_array($login_query_run);
-            $userid = $userdata['id'];
+            $userid = $userdata['user_id'];
             $username = $userdata['name'];
             $useremail = $userdata['email'];
     
             setcookie("user_id", $userid, time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie("user_email", $userid, time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie("user_name", $userid, time() + (86400 * 30), "/"); // 86400 = 1 day
+            setcookie("user_email", $email, time() + (86400 * 30), "/"); // 86400 = 1 day
+            setcookie("user_name", $name, time() + (86400 * 30), "/"); // 86400 = 1 day
 
     
             $_SESSION['message'] = "Logged In Successfully";
