@@ -49,9 +49,13 @@ include('includes/header.php');
                                             <?= $item['is_profit'] == '1' ? "Profit" : "Non-Profit"?>
                                         </td>
                                         <td>
-                                            <a href="edit-category.php?id=<?= $item['id']; ?>" class="btn btn-primary bg-gradient-success">Edit</a>
                                             
-                                                <button class="btn btn-warning btn-sm delete_category_btn" value="<?= $item['id'];?>" type="submit" name="delete_category_btn">Delete</button>
+                                            
+                                            <form action="code.php" method="POST">
+                                            <a href="edit-category.php?id=<?= $item['id']; ?>" class="btn btn-primary bg-gradient-success">Edit</a>
+                                                <input type="hidden" name="category_id" value="<?= $item['id']; ?>">
+                                                <button type="submit" class="btn btn-warning btn-sm" name="delete_category_btn">Delete</button>
+                                            </form>
                                             
                                             </td>
                                     </tr>

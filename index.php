@@ -23,26 +23,26 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="img/carousel-1.jpg" alt="Image">
+                    <img class="w-100" src="img/image1.jpg" alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">UN PAS POUR LA RONODO</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Explore More</a>
+                                    <h1 class="display-1 text-white mb-5 animated slideInDown">UN PAS POUR LA SOLIDARITE</h1>
+                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">JOIN US</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="img/carousel-2.jpg" alt="Image">
+                    <img class="w-100" src="img/image4.jpg" alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-7">
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">Create Your Own Small Garden At Home</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Explore More</a>
+                                    <h1 class="display-1 text-white mb-5 animated slideInDown">Randonnée pour la bonne cause </h1>
+                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">JOIN US</a>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                             </div>
                             <div class="ps-3">
                                 <h4>No Hidden Cost</h4>
-                                <span>Clita erat ipsum lorem sit sed stet duo justo</span>
+                                <span>Notre cause est claire et noble</span>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                             </div>
                             <div class="ps-3">
                                 <h4>Dedicated Team</h4>
-                                <span>Clita erat ipsum lorem sit sed stet duo justo</span>
+                                <span>Notre équipe est passionnée par la fourniture de résultats de haute qualité </span>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,9 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                             </div>
                             <div class="ps-3">
                                 <h4>24/7 Available</h4>
-                                <span>Clita erat ipsum lorem sit sed stet duo justo</span>
+                                <span>+213660316628</span>
+                                <span>+213550312345</span>
+                                <span>email:randosolidaire@gmail.com</span>
                             </div>
                         </div>
                     </div>
@@ -116,14 +118,14 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
         <div class="container">
             <div class="row g-5 align-items-end">
                 <div class="col-lg-3 col-md-5 wow fadeInUp" data-wow-delay="0.1s">
-                    <img class="img-fluid rounded" data-wow-delay="0.1s" src="img/about.jpg">
+                    <img class="img-fluid rounded" data-wow-delay="0.1s" src="img/image3.jpg">
                 </div>
                 <div class="col-lg-6 col-md-7 wow fadeInUp" data-wow-delay="0.3s">
-                    <h1 class="display-1 text-primary mb-0">25</h1>
-                    <p class="text-primary mb-4">Year of Experience</p>
-                    <h1 class="display-5 mb-4"> RANDONNEÉ POUR LA  BONNE CAUSE</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <a class="btn btn-primary py-3 px-4" href="">Explore More</a>
+                    <h1 class="display-1 text-primary mb-0">15</h1>
+                    <p class="text-primary mb-4">Years of Experience</p>
+                    <h1 class="display-5 mb-4"> À propos de nous :</h1>
+                    <p class="mb-4">Nous sommes une communauté de randonneurs passionnés qui croient en l'importance de donner en retour à la société. Nous organisons des randonnées à but caritatif dans toute la France pour collecter des fonds et sensibiliser les gens aux causes qui nous tiennent à cœur. Nous croyons que la randonnée est une activité formidable qui peut non seulement nous aider à rester en forme, mais aussi à nous connecter à la nature et à ceux qui nous entourent.</p>
+                    <a class="btn btn-primary py-3 px-4" href="">ABOUT US</a>
                 </div>
                 <div class="col-lg-3 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="row g-5">
@@ -131,14 +133,14 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                             <div class="border-start ps-4">
                                 <i class="fa fa-award fa-3x text-primary mb-3"></i>
                                 <h4 class="mb-3">Award Winning</h4>
-                                <span>Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna</span>
+                                <span></span>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 col-lg-12">
                             <div class="border-start ps-4">
                                 <i class="fa fa-users fa-3x text-primary mb-3"></i>
                                 <h4 class="mb-3">Dedicated Team</h4>
-                                <span>Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna</span>
+                               <span>Notre équipe est passionnée par la fourniture de résultats de haute qualité</span>
                             </div>
                         </div>
                     </div>
@@ -148,41 +150,14 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
     </div>
     <!-- About End -->
 
-
-    <!-- Facts Start -->
-    <div class="container-fluid facts my-5 py-5" data-parallax="scroll" data-image-src="img/carousel-1.jpg">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="display-4 text-white" data-toggle="counter-up">1234</h1>
-                    <span class="fs-5 fw-semi-bold text-light">Happy Clients</span>
-                </div>
-                <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                    <h1 class="display-4 text-white" data-toggle="counter-up">1234</h1>
-                    <span class="fs-5 fw-semi-bold text-light">Garden Complated</span>
-                </div>
-                <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="display-4 text-white" data-toggle="counter-up">1234</h1>
-                    <span class="fs-5 fw-semi-bold text-light">Dedicated Staff</span>
-                </div>
-                <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                    <h1 class="display-4 text-white" data-toggle="counter-up">1234</h1>
-                    <span class="fs-5 fw-semi-bold text-light">Awards Achieved</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Facts End -->
-
-
     <!-- Features Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <p class="fs-5 fw-bold text-primary">Why Choosing Us!</p>
-                    <h1 class="display-5 mb-4">Few Reasons Why People Choosing Us!</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <h1 class="display-5 mb-4">Pourquoi Participer à nos Événements de Randonnée?</h1>
+                    <p class="mb-4">Participer à nos événements de randonnée est une excellente occasion de se connecter avec d'autres randonneurs passionnés tout en soutenant une cause importante. Nos événements sont conçus pour offrir une expérience de randonnée unique et inoubliable, avec des itinéraires soigneusement sélectionnés, des niveaux de difficulté variés et des paysages à couper le souffle. En participant à nos événements, vous contribuez également à des projets caritatifs qui ont un impact positif sur la société et la planète.</p>
                     <a class="btn btn-primary py-3 px-4" href="">Explore More</a>
                 </div>
                 <div class="col-lg-6">
@@ -222,8 +197,6 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
 </div>
 </div>
     <!-- Features End -->
-        
-   
     <div class="container-xxl py-5">
     <div class="container">
     <div class="row">
@@ -245,7 +218,7 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                                 <h5 class="card-title"><?= $trip['name']; ?></h5>
                                 <p class="card-text"><?= $trip['description']; ?></p>
                                 <p class="card-text"><strong>Price:</strong> $<?= $trip['trip_price']; ?></p>
-                                <a href="trip-details.php?id=<?= $trip['id']; ?>" class="btn btn-primary">View Details</a>
+                                <a href="trip-details.php?slug=<?= $trip['slug']; ?>" class="btn btn-primary">View Details</a>
                             </div>
                         </div>
                     </div>

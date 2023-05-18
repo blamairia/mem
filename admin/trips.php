@@ -40,7 +40,7 @@ include('includes/header.php');
                                     <tr>
                                         <td><?= $item['id']; ?></td>
                                         <td><?= $item['name']; ?></td>
-                                        <td><?= getCategory($item['category_id']); // assuming you have a function to get category by id ?></td>
+                                        <td><?= ($category = getCategory($item['category_id'])) ? $category['name'] : 'Unknown'; ?></td>
                                         
                                         <td><?= $item['start_date']; ?></td>
                                         <td><?= $item['end_date']; ?></td>
