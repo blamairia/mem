@@ -55,7 +55,7 @@ function searchByName($products, $search)
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link text-light" href="cart.php"><span>Shopping Cart </span><img src="uploads/shopping-cartsvg.svg" alt="Cart" width="22px" height ="20px"></a>
+                      <a class="nav-link text-light" href="view-reservation.php"><span>Reservations </span><img src="uploads/shopping-cartsvg.svg" alt="reservation" width="22px" height ="20px"></a>
                     </li>
                 
             <?php 

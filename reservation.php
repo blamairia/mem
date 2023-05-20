@@ -1,4 +1,7 @@
 <?php
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
 session_start();
 include('functions/myfunctions.php');
 include('includes/header.php');
@@ -22,7 +25,7 @@ if(isset($_GET['id'])) {
         <!-- Reservation Form -->
         <div class="col-md-6">
             <h2>Reserve Your Trip</h2>
-            <form method="POST" action="functions/myfunctions.php">
+            <form method="POST" action="functions/reservation.php">
                 <input type="hidden" name="trip_id" value="<?= $trip['id']; ?>">
                 <input type="hidden" name="user_id" value="<?= $user_id; ?>">
                 <div class="form-group">

@@ -250,5 +250,26 @@ if (isset($_POST['delete_category_btn'])) {
         }
     }
     
-    
+    include('../functions/reservation.php');
+
+if (isset($_POST['accept_reservation_btn'])) {
+    $reservationId = $_POST['reservation_id'];
+    if (acceptReservation($reservationId)) {
+        header('Location: reservations.php');
+    } else {
+        // Handle error.
+        echo "Error accepting reservation";
+    }
+}
+
+if (isset($_POST['decline_reservation_btn'])) {
+    $reservationId = $_POST['reservation_id'];
+    if (declineReservation($reservationId)) {
+        header('Location: reservations.php');
+    } else {
+        echo "Error declining reservation";
+    }
+}
+
+
 ?>
