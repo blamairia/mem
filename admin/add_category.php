@@ -37,7 +37,7 @@ include('includes/header.php');
                             <br>
                             <div class="col-md-6">
                                 
-                                <input type="hidden" name="is_profit" value="0">
+                                <input type="hidden" name="is_profit" value="1">
                             </div>
                             <div class="col-md-12">
                                 <button type="submit" class="btn bg-gradient-success" name="add_category_btn">Save</button>

@@ -85,6 +85,25 @@ function getNonProfitCategories()
 
 
 
+function saveMessage($name, $email, $subject, $message) {
+    global $con;
+    // Sanitize the input
+    $name = mysqli_real_escape_string($con, $name);
+    $email = mysqli_real_escape_string($con, $email);
+    $subject = mysqli_real_escape_string($con, $subject);
+    $message = mysqli_real_escape_string($con, $message);
+    
+    // Prepare the SQL statement
+    $sql = "INSERT INTO contact (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
+
+    // Execute the query
+    $result = mysqli_query($con, $sql);
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 

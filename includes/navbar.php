@@ -40,6 +40,9 @@ function searchByName($products, $search)
         <li class="nav-item">
           <a class="nav-link text-light active" aria-current="page" href="index.php">Home</a>
         </li>
+        <li class="nav-item">
+                <a class="nav-link text-light" href="contact.php">Contact</a>
+              </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Profit
@@ -89,6 +92,7 @@ function searchByName($products, $search)
               <li class="nav-item">
                 <a class="nav-link text-light" href="login.php">Login</a>
               </li>
+              
               
             <?php
             }

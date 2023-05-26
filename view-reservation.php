@@ -5,7 +5,6 @@ session_start();
 include('functions/reservation.php');
 include('includes/header.php');
 include('config/dbcon.php');
-include('functions/myfunctions.php');
 
 
 

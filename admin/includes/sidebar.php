@@ -23,7 +23,15 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
-            <span class="nav-link-text ms-1 fw-bold">Dashboard</span>
+            <span class="nav-link-text ms-1 fw-bold">Reservations</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white <?= $page == 'contact.php' ? 'active bg-gradient-info' : "" ;?>" href="contact.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">dashboard</i>
+            </div>
+            <span class="nav-link-text ms-1 fw-bold">Messages</span>
           </a>
         </li>
         <li class="nav-item">
@@ -39,7 +47,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1 fw-bold">ALL Category_c</span>
+            <span class="nav-link-text ms-1 fw-bold">Category Caretatif</span>
           </a>
         </li>
         <li class="nav-item">
