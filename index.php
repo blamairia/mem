@@ -7,7 +7,6 @@ session_start();
     include('includes/header.php');
     include('config/dbcon.php');
     
-    include('functions/myfunctions.php');
     
 // put the parameters in the $index variable
 $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
@@ -197,69 +196,71 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
 </div>
 </div>
     <!-- Features End -->
-    <div class="container-xxl py-5">
+    <!-- Features End -->
+<div class="container-xxl py-5">
     <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="text-center mb-4">Non-profit Trips</h2>
-            <hr>
-            <?php
-            $non_profit_categories = getAllActive('categories', 0);
-            while ($category = mysqli_fetch_assoc($non_profit_categories)) {
-                echo '<h4>' . $category['name'] . '</h4>';
-                $trips = getTripsByCategory($category['id']);
-                echo '<div class="row">';
-                while ($trip = mysqli_fetch_assoc($trips)) {
-                    ?>
-                    <div class="col-md-4">
-                        <div class="card mb-4">
-                            <img src="uploads/<?= $trip['images']; ?>" class="card-img-top" alt="<?= $trip['name'] ?>">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $trip['name']; ?></h5>
-                                <p class="card-text"><?= $trip['description']; ?></p>
-                                <p class="card-text"><strong>Price:</strong> $<?= $trip['trip_price']; ?></p>
-                                <a href="trip-details.php?slug=<?= $trip['slug']; ?>" class="btn btn-primary">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                }
-                echo '</div>';
-            }
-            ?>
-            <h2 class="text-center mb-4 mt-5">Profit Trips</h2>
-            <hr>
-            <?php
-            $profit_categories = getAllActive('categories', 1);
-            while ($category = mysqli_fetch_assoc($profit_categories)) {
-                echo '<h4>' . $category['name'] . '</h4>';
-                $trips = getTripsByCategory($category['id']);
-                echo '<div class="row">';
-                while ($trip = mysqli_fetch_assoc($trips)) {
-                    ?>
-                    <div class="col-md-4 mb-2">
-                        <div class="card shadow" style="width: 18rem; height: 18rem;">
-                            <img src="uploads/<?= $trip['images']; ?>" alt="trip image" class="card-img-top" style="height: 10rem; object-fit: contain;">
-                            <div class="card-body">
-                                <h5 class="text-center"><?= $trip['name']; ?></h5>
-                                <p class="text-center"><?= substr($trip['description'], 0, 100); ?>...</p>
-                                <h6 class="text-center text-muted">Price: $<?= $trip['trip_price']; ?></h6>
-                                <div class="d-grid">
-                                    <a href="trip-details.php?slug=<?= $trip['slug']; ?>" class="btn btn-primary">Show More</a>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center mb-4">Non-profit Trips</h2>
+                <hr>
+                <div class="row">
+                <?php
+                $non_profit_categories = getAllActive('categories', 0);
+                while ($category = mysqli_fetch_assoc($non_profit_categories)) {
+                    $trips = getTripsByCategory($category['id']);
+                    while ($trip = mysqli_fetch_assoc($trips)) {
+                        ?>
+                        <div class="col-md-3 mb-2">
+                            <div class="card shadow" style="width: 18rem; height: 26rem;">
+                                <img src="uploads/<?= $trip['images']; ?>" alt="trip image" class="card-img-top" style="height: 15rem; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="text-center"><?= $trip['name']; ?></h5>
+                                    <p class="text-center"><?= substr($trip['description'], 0, 100); ?>...</p>
+                                    <h6 class="text-center text-muted">Price: $<?= $trip['trip_price']; ?></h6>
+                                    <div class="d-grid">
+                                        <a href="trip-details.php?slug=<?= $trip['slug']; ?>" class="btn btn-primary">Show More</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-
-                    <?php
+                        <?php
+                    }
                 }
-                echo '</div>';
-            }
-            ?>
+                ?>
+                </div>
+
+                <h2 class="text-center mb-4 mt-5">Profit Trips</h2>
+                <hr>
+                <div class="row">
+                <?php
+                $profit_categories = getAllActive('categories', 1);
+                while ($category = mysqli_fetch_assoc($profit_categories)) {
+                    $trips = getTripsByCategory($category['id']);
+                    while ($trip = mysqli_fetch_assoc($trips)) {
+                        ?>
+                        <div class="col-md-3 mb-2">
+                            <div class="card shadow" style="width: 18rem; height: 26rem;">
+                                <img src="uploads/<?= $trip['images']; ?>" alt="trip image" class="card-img-top" style="height: 15rem; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="text-center"><?= $trip['name']; ?></h5>
+                                    <p class="text-center"><?= substr($trip['description'], 0, 100); ?>...</p>
+                                    <h6 class="text-center text-muted">Price: $<?= $trip['trip_price']; ?></h6>
+                                    <div class="d-grid">
+                                        <a href="trip-details.php?slug=<?= $trip['slug']; ?>" class="btn btn-primary">Show More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
     </div>
 
 <?php include('includes/footer.php'); ?>

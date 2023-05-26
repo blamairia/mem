@@ -1,5 +1,6 @@
 <?php
 include("config/dbcon.php");
+include_once("functions/myfunctions.php");
 
 $search = "";
 if (isset($_POST['search'])) {
@@ -39,12 +40,33 @@ function searchByName($products, $search)
         <li class="nav-item">
           <a class="nav-link text-light active" aria-current="page" href="index.php">Home</a>
         </li>
-        <li class="nav-item">
-                    <a class="nav-link text-light" href="categories.php?profit=1">Profit</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="categories.php?profit=0">Non-Profit</a>
-                </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profit
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <?php 
+            $profitCategories = getProfitCategories();
+            while($category = mysqli_fetch_assoc($profitCategories)) {
+                echo "<li><a class='dropdown-item' href='categories.php?id=".$category['id']."'>".$category['name']."</a></li>";
+            }
+            ?>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Non-Profit
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <?php 
+            $nonProfitCategories = getNonProfitCategories();
+            while($category = mysqli_fetch_assoc($nonProfitCategories)) {
+                echo "<li><a class='dropdown-item' href='categories.php?id=".$category['id']."'>".$category['name']."</a></li>";
+            }
+            ?>
+          </ul>
+        </li>
         <?php 
             if(isset($_SESSION['auth']))
             {
