@@ -30,7 +30,7 @@ include('includes/header.php');
                         </thead>
                         <tbody>
                             <?php
-                            $category = getAll("categories");
+                            $category = getProfitCategories("categories");
         
                             if(mysqli_num_rows($category) > 0)
                             {

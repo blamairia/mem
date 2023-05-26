@@ -54,6 +54,12 @@ function getAllReservations() {
     return $result; // returning mysqli_result, not array
 }
 
+function getAllMessages() {
+    global $con;
+    $query = "SELECT * FROM contact";
+    $result = mysqli_query($con, $query);
+    return $result; // returning mysqli_result, not array
+}
 
 
 function countAcceptedReservationsForTrip($tripId) {

@@ -67,8 +67,9 @@ include('includes/header.php');
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required></textarea>
+                                <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required maxlength="500" oninput="updateCharacterCount(this)"></textarea>
                                 <label for="message">Message</label>
+                                <small id="charCount" class="form-text text-muted">500 characters remaining</small>
                             </div>
                         </div>
                         <div class="col-12">
@@ -89,6 +90,16 @@ include('includes/header.php');
     </div>
 </div>
 <!-- Contact End -->
+<script>
+    function updateCharacterCount(textarea) {
+    var maxLength = textarea.getAttribute("maxlength");
+    var currentLength = textarea.value.length;
+    var remainingLength = maxLength - currentLength;
+    var charCountElement = document.getElementById("charCount");
+    
+    charCountElement.textContent = remainingLength + " characters remaining";
+}
+</script>
 
 <?php
 include('includes/footer.php');
