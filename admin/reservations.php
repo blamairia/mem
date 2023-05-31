@@ -82,7 +82,7 @@ if (isset($_SESSION['message'])) {
                                         <td>
                                             <img src="../uploads/<?= $trip['images']; ?>" width="50px" height="50px" alt="<?= $trip['name'] ?>">
                                         </td>
-                                        <td><?= $user['name']; ?></td>
+                                        <td><?= $item['name']; ?></td>
                                         <td><?= $item['status']; ?></td>
                                         <td>
                                             <form action="reservations.php" method="POST">

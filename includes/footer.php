@@ -27,13 +27,11 @@
           <h5 class="text-uppercase mb-4">About company</h5>
   
           <p>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-            voluptatum deleniti atque corrupti.
+          We help people to discover our beautiful country by different culture of travel ( Hiking and Camp )
           </p>
   
           <p>
-            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-            molestias.
+          Choisissez parmi nos programmes une destination pour découvrir de nouveaux horizons et revenir
           </p>
   
           <div class="mt-4">
@@ -64,16 +62,16 @@
           </form>
           <ul class="fa-ul" style="margin-left: 1.65em;">
             <li class="mb-3">
-              <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">New York, NY 10012, US</span>
+              <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">ANNABA,23000,ALG</span>
             </li>
             <li class="mb-3">
-              <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span>
+              <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">randosolidaire.com</span>
             </li>
             <li class="mb-3">
-              <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 01 234 567 88</span>
+              <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+213660316628</span>
             </li>
             <li class="mb-3">
-              <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">+ 01 234 567 89</span>
+              <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">038591111</span>
             </li>
           </ul>
         </div>

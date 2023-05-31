@@ -1,7 +1,7 @@
 <?php
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 include('functions/myfunctions.php');
 include('includes/header.php');
@@ -12,6 +12,15 @@ if(isset($_GET['id'])) {
     $trip = mysqli_fetch_array($tripData);
     
     if($trip) {
+        // Check if the user is logged in
+        $isLoggedIn = isset($_COOKIE['user_id']); // Modify 'user_id' with the actual cookie name for user login
+        
+        if(!$isLoggedIn) {
+            // JavaScript redirect function
+            echo '<script>window.location.href = "login.php";</script>';
+            exit();
+        }
+
         $user_id = $_COOKIE['user_id'];
         
         $useremail = $_COOKIE['user_email'];
@@ -21,46 +30,46 @@ if(isset($_GET['id'])) {
         $username = $user['name'];
         ?>
         <div class="container">
-    <div class="row">
-        <!-- Reservation Form -->
-        <div class="col-md-6">
-            <h2>Reserve Your Trip</h2>
-            <form method="POST" action="functions/reservation.php">
-                <input type="hidden" name="trip_id" value="<?= $trip['id']; ?>">
-                <input type="hidden" name="user_id" value="<?= $user_id; ?>">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" class="form-control" id="name" name="name" value="<?= $username; ?>" required>
+            <div class="row">
+                <!-- Reservation Form -->
+                <div class="col-md-6">
+                    <h2>Reserve Your Trip</h2>
+                    <form method="POST" action="functions/reservation.php">
+                        <input type="hidden" name="trip_id" value="<?= $trip['id']; ?>">
+                        <input type="hidden" name="user_id" value="<?= $user_id; ?>">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="<?= $username; ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" value="<?= $useremail; ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number (optional)</label>
+                            <input type="text" class="form-control" id="phone" name="phone">
+                        </div>
+                        <button type="submit" name="reserve_button" class="btn btn-primary">Confirm Reservation</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" value="<?= $useremail; ?>" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number (optional)</label>
-                    <input type="text" class="form-control" id="phone" name="phone">
-                </div>
-                <button type="submit" name="reserve_button" class="btn btn-primary">Confirm Reservation</button>
-            </form>
-        </div>
-        
-        <!-- Trip Information -->
-        <div class="col-md-6">
-            <h2>Trip Details</h2>
-            <div class="card mb-3">
-                <img src="uploads/<?= $trip['images']; ?>" class="card-img-top" alt="<?= $trip['name'] ?>">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $trip['name'] ?></h5>
-                    <p class="card-text"><?= $trip['description']; ?></p>
-                    <p class="card-text"><small class="text-muted">Start Date: <?= date('d F Y', strtotime($trip['start_date'])); ?></small></p>
-                    <p class="card-text"><small class="text-muted">End Date: <?= date('d F Y', strtotime($trip['end_date'])); ?></small></p>
-                    <p class="card-text"><small class="text-muted">Places Remaining: <?= $trip['places']; ?></small></p>
-                    <p class="card-text"><small class="text-muted">Price: <?= $trip['trip_price']; ?> DZD</small></p>
+                
+                <!-- Trip Information -->
+                <div class="col-md-6">
+                    <h2>Trip Details</h2>
+                    <div class="card mb-3">
+                        <img src="uploads/<?= $trip['images']; ?>" class="card-img-top" alt="<?= $trip['name'] ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $trip['name'] ?></h5>
+                            <p class="card-text"><?= $trip['description']; ?></p>
+                            <p class="card-text"><small class="text-muted">Start Date: <?= date('d F Y', strtotime($trip['start_date'])); ?></small></p>
+                            <p class="card-text"><small class="text-muted">End Date: <?= date('d F Y', strtotime($trip['end_date'])); ?></small></p>
+                            <p class="card-text"><small class="text-muted">Places Remaining: <?= $trip['places']; ?></small></p>
+                            <p class="card-text"><small class="text-muted">Price: <?= $trip['trip_price']; ?> DZD</small></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
-</div>
 
         <?php
     }

@@ -33,7 +33,7 @@
 
 
    
-    <title>Burga Shop</title>
+    <title>RandoSolidaire</title>
   </head>
   <body>
       <?php include('navbar.php');

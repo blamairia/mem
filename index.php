@@ -28,7 +28,7 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">UN PAS POUR LA SOLIDARITE</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">JOIN US</a>
+                                    <a href="register.php" class="btn btn-primary py-sm-3 px-sm-4">JOIN US</a>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                             <div class="row justify-content-center">
                                 <div class="col-lg-7">
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">Randonnée pour la bonne cause </h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">JOIN US</a>
+                                    <a href="register.php" class="btn btn-primary py-sm-3 px-sm-4">JOIN US</a>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,7 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                     <p class="text-primary mb-4">Years of Experience</p>
                     <h1 class="display-5 mb-4"> À propos de nous :</h1>
                     <p class="mb-4">Nous sommes une communauté de randonneurs passionnés qui croient en l'importance de donner en retour à la société. Nous organisons des randonnées à but caritatif dans toute la France pour collecter des fonds et sensibiliser les gens aux causes qui nous tiennent à cœur. Nous croyons que la randonnée est une activité formidable qui peut non seulement nous aider à rester en forme, mais aussi à nous connecter à la nature et à ceux qui nous entourent.</p>
-                    <a class="btn btn-primary py-3 px-4" href="">ABOUT US</a>
+                   
                 </div>
                 <div class="col-lg-3 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="row g-5">
@@ -157,7 +157,7 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                     <p class="fs-5 fw-bold text-primary">Why Choosing Us!</p>
                     <h1 class="display-5 mb-4">Pourquoi Participer à nos Événements de Randonnée?</h1>
                     <p class="mb-4">Participer à nos événements de randonnée est une excellente occasion de se connecter avec d'autres randonneurs passionnés tout en soutenant une cause importante. Nos événements sont conçus pour offrir une expérience de randonnée unique et inoubliable, avec des itinéraires soigneusement sélectionnés, des niveaux de difficulté variés et des paysages à couper le souffle. En participant à nos événements, vous contribuez également à des projets caritatifs qui ont un impact positif sur la société et la planète.</p>
-                    <a class="btn btn-primary py-3 px-4" href="">Explore More</a>
+                    <a class="btn btn-primary py-3 px-4" href="contact.php">Explore More</a>
                 </div>
                 <div class="col-lg-6">
                     <div class="row g-4 align-items-center">
@@ -201,7 +201,7 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="text-center mb-4">Non-profit Trips</h2>
+                <h2 class="text-center mb-4">La cause soutenue </h2>
                 <hr>
                 <div class="row">
                 <?php
@@ -229,7 +229,7 @@ $link = "http://" . $_SERVER['SERVER_NAME'] . '/billel/MB';
                 ?>
                 </div>
 
-                <h2 class="text-center mb-4 mt-5">Profit Trips</h2>
+                <h2 class="text-center mb-4 mt-5">Avtivité sportive</h2>
                 <hr>
                 <div class="row">
                 <?php

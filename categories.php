@@ -20,7 +20,7 @@ $profit = isset($_GET['profit']) ? $_GET['profit'] : ''; // Get the 'profit' par
 <div class="py-5 container">
     <div class="row">
         <div class="col-md-12">
-            <h1>Our Collections</h1>
+            <h1>Nos programmes</h1>
             <hr>
             <div class="row">
                 <?php
